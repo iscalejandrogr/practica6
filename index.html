@@ -4,11 +4,67 @@
         <meta charset="UTF-8" />
         <title>jQTouch &beta;</title>
         <link rel="stylesheet" href="css/vanilla.css" title="jQTouch">
-	<script src="phonegap.js"></script>
+		<script src="phonegap.js"></script>
         <script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="js/jqtouch.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/jqtouch.min.js" type="text/javascript" charset="utf-8"></script> 
+		<script src="js/actions.js" type="text/javascript" charset="utf-8"></script>
+      
+       
+        <script type="text/javascript" charset="utf-8">
+            /*
+            // Some sample Javascript functions:
+            $(function(){
 
-        <script  src="js/actions.js" type="text/javascript" charset="utf-8"></script>
+                // Show a swipe event on swipe test
+                $('#swipeme').swipe(function(evt, data) {
+                    var details = !data ? '': '<strong>' + data.direction + '/' + data.deltaX +':' + data.deltaY + '</strong>!';
+                    $(this).html('You swiped ' + details );
+                    $(this).parent().after('<li>swiped!</li>')
+                });
+
+                $('#tapme').tap(function(){
+                    $(this).parent().after('<li>tapped!</li>')
+                });
+
+                $('a[target="_blank"]').bind('click', function() {
+                    if (confirm('This link opens in a new window.')) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                });
+
+                // Page animation callback events
+                $('#pageevents').
+                    bind('pageAnimationStart', function(e, info){ 
+                        $(this).find('.info').append('Started animating ' + info.direction + '&hellip;  And the link ' +
+                            'had this custom data: ' + $(this).data('referrer').data('custom') + '<br>');
+                    }).
+                    bind('pageAnimationEnd', function(e, info){
+                        $(this).find('.info').append('Finished animating ' + info.direction + '.<br><br>');
+
+                    });
+                
+                // Page animations end with AJAX callback event, example 1 (load remote HTML only first time)
+                $('#callback').bind('pageAnimationEnd', function(e, info){
+                    // Make sure the data hasn't already been loaded (we'll set 'loaded' to true a couple lines further down)
+                    if (!$(this).data('loaded')) {
+                        // Append a placeholder in case the remote HTML takes its sweet time making it back
+                        // Then, overwrite the "Loading" placeholder text with the remote HTML
+                        $(this).append($('<div>Loading</div>').load('ajax.html .info', function() {        
+                            // Set the 'loaded' var to true so we know not to reload
+                            // the HTML next time the #callback div animation ends
+                            $(this).parent().data('loaded', true);  
+                        }));
+                    }
+                });
+                // Orientation callback event
+                $('#jqt').bind('turn', function(e, data){
+                    $('#orient').html('Orientation: ' + data.orientation);
+                });
+                
+            });*/
+        </script>
         <style type="text/css" media="screen">
             #jqt.fullscreen #home .info {
                 display: none;
@@ -33,56 +89,56 @@
     </head>
     <body>
         <div id="jqt">
-            <div id="about" class="selectable">                  
-                    <p><strong>Práctica 1</strong><br>Version 1.0<br>
-                        <a href="http://www.cenet.mx">Por  Aelejandro Guzmán</a></p>
-                    <p><em>API PhoneGap <br> Acelerómetro<br>Brújula </em></p>                   
+            <div id="about" class="selectable">
+                      <p><strong>Practica1</strong><br>Version 1.0<br>
+                        <a href="http://www.cenet.mx">By Christian Murillo</a></p>
+                    <p><em>API Phonegap<br>Acelerometro<br>Brujula</em></p>
                     <p><br><br><a href="#" class="grayButton goback">Cerrar</a></p>
             </div>
             <div id="home" class="current">
                 <div class="toolbar">
-                    <h1>Practica 1</h1>
-                    <a class="button slideup" id="infoButton" href="#about">About</a>
+                    <h1>Práctica 1</h1>
+                    <a class="button slideup" id="infoButton" href="#about">Info</a>
                 </div>
                 <div class="scroll">
                     <ul class="rounded">
-                        <li class="arrow"><a href="#acelerometro">Acelerómetro <small class="counter">2</small></a> </li>
-                        <li class="arrow"><a href="#brujula">Brújula <small class="counter">2</small></a></li>                        
-                    </ul>                    
-                    <ul class="individual">
-                        <li><a target="_blank" href="#">@beedesk</a></li>
-                        <li><a target="_blank" href="http://twitter.com/!#/beedesk">@beedesk</a></li>
-                    </ul>
+                        <li class="arrow"><a href="#acelerometro">Acelerómetro<small class="counter">2</small></a> </li>
+                        <li class="arrow"><a href="#brujula">Brujula <small class="counter">2</small></a></li>
+                      </ul>
+                    
                     <div class="info">
-                        <p>Práctica de PhoneGap<br>Utilizando API.</p>
+                        <p>Práctica de Phonegap<br>Utilizando API.</p>
                     </div>
                 </div>
             </div>
             <div id="acelerometro">
                 <div class="toolbar">
-                    <h1>Acelerómetro</h1>
-                    <a href="#" class="back">Atrás</a>
+                    <h1>Acelerometro</h1>
+                    <a href="#" class="back">Atras</a>
                 </div>
+                <div class="scroll">
                 <ul class="individual">
-                        <li style="background:#900;"><a style=" color:#FFF;" target="_blank" href="#">Iniciar</a></li>
-                        <li ><a target="_blank" href="#">Detener</a></li>
+                        <li><a href="#">Iniciar</a></li>
+                        <li style="background-color:#900"><a style="color:#fff" href="#">Detener</a></li>
                     </ul>
                     <h2>Detenido</h2>
+                </div>
             </div>
             <div id="brujula">
-                 <div class="toolbar">
-                    <h1>Brújula</h1>
-                    <a href="#" class="back">Atrás</a>
+                <div class="toolbar">
+                    <h1>Brujula</h1>
+                    <a class="back" href="#">Atrás</a>
                 </div>
-                <ul class="scroll">
-                        <li><a  target="_blank" href="#">Iniciar</a></li>
-                        <li style="background:#900;"><a style=" color:#FFF;" target="_blank" href="#">Detener</a></li>
+                <div class="scroll">
+                <ul class="individual">
+                        <li><a href="#">Iniciar</a></li>
+                        <li style="background-color:#900">
+                        <a style="color:#fff" href="#">Detener</a></li>
                     </ul>
                     <h2>Detenido</h2>
-            </div>
-                <div class="info scroll" style="font-weight: normal;">
                 </div>
-            </div> 
+            </div>
+            
         </div>
     </body>
 </html>
